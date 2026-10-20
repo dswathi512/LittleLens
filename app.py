@@ -93,5 +93,5 @@ def too_large(_error):
     return jsonify({"error": "That image is too large. Please choose an image under 8 MB."}), 413
 
 if __name__ == "__main__":
-    # debug=True is convenient locally. Turn it off for public deployment.
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=False)
