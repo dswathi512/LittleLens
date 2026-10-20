@@ -1,0 +1,242 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffdf45">
+  <title>LittleLens — Big discoveries for little minds</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <div class="sunburst" aria-hidden="true"></div>
+
+  <nav class="navbar">
+    <a href="/" class="brand">
+      <span class="brand-icon">🔎</span>
+      <span class="brand-name">LittleLens<span class="brand-dot">.</span></span>
+    </a>
+
+    <div class="nav-right">
+      <span class="nav-note"><span class="online-dot"></span> YOUR LITTLE WORLD OF DISCOVERY</span>
+      <a href="#explore" class="nav-button">Let's explore! <span>↗</span></a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span>✦</span> CURIOUS MINDS WELCOME <span>✦</span></div>
+
+        <h1>
+          The world is<br>
+          full of <span class="highlight-word">WOW!</span>
+        </h1>
+
+        <p class="hero-description">
+          Found something fascinating? Let's find out what it is!
+          Show LittleLens a picture and discover the amazing story behind it.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#explore" class="primary-button">Let's discover <span>→</span></a>
+          <span class="hero-caption">🌈 Every picture tells a story</span>
+        </div>
+
+        <div class="tiny-facts">
+          <div class="fact"><span class="fact-icon">🧠</span><span>Learn something new</span></div>
+          <div class="fact"><span class="fact-icon">💜</span><span>Made for curious kids</span></div>
+        </div>
+      </div>
+
+      <div class="hero-art" aria-label="A playful illustrated world">
+        <div class="art-sun"></div>
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+
+        <span class="doodle doodle-star">✳</span>
+        <span class="doodle doodle-sparkle">✦</span>
+        <span class="doodle doodle-heart">♥</span>
+        <span class="doodle doodle-circle">●</span>
+
+        <div class="floating-label label-top">LOOK CLOSER! <span>👀</span></div>
+
+        <div class="character-stage">
+          <div class="character-shadow"></div>
+
+          <div class="character">
+            <div class="character-ear ear-left"></div>
+            <div class="character-ear ear-right"></div>
+            <div class="character-face">
+              <div class="character-eyes">
+                <span></span><span></span>
+              </div>
+              <div class="character-cheeks"><span></span><span></span></div>
+              <div class="character-smile"></div>
+            </div>
+            <div class="character-body"></div>
+            <div class="character-arm arm-left"></div>
+            <div class="character-arm arm-right"></div>
+            <div class="character-feet"><span></span><span></span></div>
+            <div class="character-badge">✦</div>
+          </div>
+
+          <div class="magnifier">
+            <div class="magnifier-glass"><span>🌼</span></div>
+            <div class="magnifier-handle"></div>
+          </div>
+        </div>
+
+        <div class="floating-label label-bottom"><span>✨</span> LITTLE DISCOVERER</div>
+        <div class="art-ground"></div>
+        <div class="ground-flower flower-one">✿</div>
+        <div class="ground-flower flower-two">✿</div>
+      </div>
+    </section>
+
+    <section class="explore-section" id="explore">
+      <div class="section-heading">
+        <span class="section-kicker">YOUR NEXT ADVENTURE STARTS HERE</span>
+        <h2>What's that <span>thing?</span> <span class="heading-star">✳</span></h2>
+        <p>Pick a picture. Ask a question. Let the discovering begin!</p>
+      </div>
+
+      <div class="workspace">
+        <div class="upload-card">
+          <div class="card-topline">
+            <span class="step-number">01</span>
+            <span class="step-label">PICK YOUR PICTURE</span>
+            <span class="card-emoji">🖼️</span>
+          </div>
+
+          <div class="drop-zone" id="dropZone">
+            <div class="preview-placeholder" id="previewPlaceholder">
+              <div class="picture-stack">
+                <div class="picture-back"></div>
+                <div class="picture-front">
+                  <span class="picture-sun"></span>
+                  <span class="picture-mountain mountain-a"></span>
+                  <span class="picture-mountain mountain-b"></span>
+                  <span class="picture-flower">✿</span>
+                </div>
+                <span class="picture-spark">✦</span>
+              </div>
+              <h3>What did you find?</h3>
+              <p>A bug? A planet? A strange-looking plant?</p>
+              <p class="drop-hint">Drop a picture here or choose one below</p>
+            </div>
+
+            <img id="imagePreview" class="image-preview" alt="Your selected picture" hidden>
+
+            <div class="preview-actions" id="previewActions" hidden>
+              <span class="selected-badge">✓ PICTURE READY!</span>
+              <button type="button" id="changeImage" class="change-button">Change picture ↻</button>
+            </div>
+          </div>
+
+          <input type="file" id="imageInput" accept="image/*" hidden>
+
+          <div class="upload-buttons">
+            <button type="button" id="uploadButton" class="upload-button">
+              <span class="button-icon">📁</span>
+              Choose a picture
+            </button>
+            <button type="button" id="cameraButton" class="camera-button">
+              <span>📸</span> Take a photo
+            </button>
+          </div>
+
+          <div class="privacy-note"><span>🔒</span> Your adventure, your picture. Choose what to share.</div>
+        </div>
+
+        <div class="question-card">
+          <div class="card-topline">
+            <span class="step-number step-blue">02</span>
+            <span class="step-label">TELL US WHAT YOU WONDER</span>
+            <span class="card-emoji">💭</span>
+          </div>
+
+          <label class="question-label" for="questionInput">What's on your mind?</label>
+          <textarea id="questionInput" maxlength="500" placeholder="Why is this bug so colourful? How does a rocket fly? Ask away!"></textarea>
+
+          <div class="question-examples">
+            <span class="examples-label">NEED AN IDEA?</span>
+            <button type="button" class="question-chip" data-question="What is this?">🔍 What is this?</button>
+            <button type="button" class="question-chip" data-question="How does it work?">⚙️ How does it work?</button>
+            <button type="button" class="question-chip" data-question="Tell me a fun fact about it!">🤩 Fun fact!</button>
+          </div>
+
+          <button type="button" id="explainButton" class="discover-button" disabled>
+            <span class="discover-sparkle">✦</span>
+            <span id="buttonText">Explain the magic!</span>
+            <span class="discover-arrow">→</span>
+          </button>
+
+          <p class="button-footnote">🌟 Big questions deserve fun answers.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="result-section" id="resultSection" hidden>
+      <div class="result-heading">
+        <span class="result-kicker">YOUR DISCOVERY IS HERE!</span>
+        <h2>Ta-da! <span>Look what we found.</span> 🎉</h2>
+      </div>
+
+      <div class="result-card">
+        <div class="result-topline">
+          <span class="result-icon">💡</span>
+          <div>
+            <h3>Let's understand it!</h3>
+            <p>A little explanation for a big imagination.</p>
+          </div>
+        </div>
+        <div id="resultContent" class="result-content"></div>
+      </div>
+
+      <div class="result-footer">
+        <span>🌈 Stay curious. Keep discovering.</span>
+        <button type="button" id="tryAgainButton">Explore another picture ↗</button>
+      </div>
+    </section>
+
+    <div id="errorMessage" class="error-message" role="alert" hidden></div>
+
+    <section class="bottom-banner">
+      <div class="banner-doodle">✳</div>
+      <div>
+        <p class="banner-kicker">A LITTLE CURIOSITY GOES A LONG WAY</p>
+        <h2>Keep asking <span>why!</span></h2>
+        <p>Because the best adventures begin with a question.</p>
+      </div>
+      <div class="banner-art" aria-hidden="true">🚀</div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="/" class="footer-brand">🔎 LittleLens<span>.</span></a>
+    <p>Made for little explorers with big imaginations. 💛</p>
+    <span class="footer-stars">✦ ✧ ✦</span>
+  </footer>
+
+  <div class="camera-modal" id="cameraModal" hidden>
+    <div class="camera-dialog">
+      <button type="button" class="modal-close" id="closeCamera" aria-label="Close camera">×</button>
+      <span class="camera-kicker">SAY CHEESE! 📸</span>
+      <h2>Let's take a picture!</h2>
+      <video id="cameraVideo" autoplay playsinline></video>
+      <canvas id="cameraCanvas" hidden></canvas>
+      <p id="cameraStatus">Allow camera access to get started.</p>
+      <button type="button" id="captureButton" class="discover-button">Capture picture ✨</button>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
